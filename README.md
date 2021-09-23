@@ -1,5 +1,5 @@
 # zetprogratv
-YouTubeチャンネル「ゼッツプログラTV」のリポジトリです。
+YouTubeチャンネル「ゼッツプログラTV」（ https://www.youtube.com/channel/UCK4cX4AtA7dIIjqFc1q6bTg ） のリポジトリです。
 
 
 # 免責事項
