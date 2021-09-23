@@ -1,5 +1,37 @@
 # このリポジトリの説明
-YouTubeチャンネル「ゼッツプログラTV」（ https://www.youtube.com/channel/UCK4cX4AtA7dIIjqFc1q6bTg ） のリポジトリです。
+YouTubeチャンネル「ゼッツプログラTV(Zet's Programming TV)」のリポジトリです。
+
+<img src="https://yt3.ggpht.com/nZza04T5E-oJlfHPMmFtVpw7szMnypJNs4yIrjHf9YAO8KSh-sSQ0R9BQnng_Y3_cbcZmiO0ow=s176-c-k-c0x00ffffff-no-rj">
+
+URL：https://www.youtube.com/channel/UCK4cX4AtA7dIIjqFc1q6bTg 
+
+## チャンネルの説明
+このチャンネルは、Qt、Android、IoTを中心にプログラミングに関する情報をお届けするチャンネルです。ライブラリや技術同人誌の作り方も扱っていく予定です。視聴者様のご要望により、柔軟に発信する優先順位を変えていきます。
+最終的にはQtでAndroidアプリを作成し、IoTの機能を実装するのが目標です。
+
+[このチャンネルの造語]
+ゼッツ(Zet's)というのは、Let'sにアーガマが好きな文字「Z」をくっ付けた、アーガマが考えた造語です。
+
+[この動画の作成者]
+アーガマ（本名:坂本 聡史/HN:argama147）
+[Twitter]
+@argama147
+
+[アーガマの略歴]
+開発経験20年のフリーランスSE。組み込み開発からキャリアをスタートし、スマートフォン向けアプリ開発、業務向けデスクトップアプリ開発を中心にソフトウェア開発を経験。
+サークル「エゥーゴ」として、技術同人誌を5冊執筆し、その内１冊は商業化した。
+
+[argama147の技術同人誌]
+・Qt5/C++入門 マルチプラットフォーム開発を始めよう
+・家庭で気軽に始めるIoT入門
+・QtでAndroidアプリを作ろう
+・ライブラリを作ろう
+・Qt5/Qt6入門 C++編
+
+[argama147の商業本]
+・ライブラリを作ろう
+
+#ゼッツプログラTV #Qt #qtjp #クロスプラットフォーム開発 #Android #IoT #cpp
 
 # 免責事項
 本サンプルプログラムにおけるスクリプト・プログラム・紹介する手法など全ての無償情報（以下、「無償プログラム等」）については、下記の通り一切の保証が無いものとしてご利用下さい。
