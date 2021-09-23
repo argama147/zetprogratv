@@ -1,4 +1,4 @@
-# zetprogratv
+# このリポジトリの説明
 YouTubeチャンネル「ゼッツプログラTV」（ https://www.youtube.com/channel/UCK4cX4AtA7dIIjqFc1q6bTg ） のリポジトリです。
 
 
