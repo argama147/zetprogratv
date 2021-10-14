@@ -30,9 +30,13 @@ URL：https://www.youtube.com/channel/UCK4cX4AtA7dIIjqFc1q6bTg
 ## [argama147の技術同人誌]
 
 ・Qt5/C++入門 マルチプラットフォーム開発を始めよう
+
 ・家庭で気軽に始めるIoT入門
+
 ・QtでAndroidアプリを作ろう
+
 ・ライブラリを作ろう
+
 ・Qt5/Qt6入門 C++編
 
 ## [argama147の商業本]
