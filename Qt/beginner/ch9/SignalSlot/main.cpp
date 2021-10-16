@@ -28,7 +28,7 @@ int main(int argc, char *argv[])
 
     //Qt5 - Lambdaスタイル2
     QObject::connect(&obj1, &Object1::sendData,
-                     &obj2, [](int data){
+                     &a, [](int data){
         qInfo() << "Lambda2:" << data;
     });
 
