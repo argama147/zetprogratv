@@ -10,13 +10,12 @@ CONFIG += c++11
 
 SOURCES += \
     main.cpp \
+    mylabel.cpp \
     widget.cpp
 
 HEADERS += \
+    mylabel.h \
     widget.h
-
-FORMS += \
-    widget.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
