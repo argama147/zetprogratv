@@ -1,12 +1,19 @@
 QT += quick
-
 CONFIG += c++11
 
-# You can make your code fail to compile if it uses deprecated APIs.
+# The following define makes your compiler emit warnings if you use
+# any Qt feature that has been marked deprecated (the exact warnings
+# depend on your compiler). Refer to the documentation for the
+# deprecated API to know how to port your code away from it.
+DEFINES += QT_DEPRECATED_WARNINGS
+
+# You can also make your code fail to compile if it uses deprecated APIs.
 # In order to do so, uncomment the following line.
+# You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+        javacaller.cpp \
         main.cpp
 
 RESOURCES += qml.qrc
@@ -22,17 +29,41 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
+
+QT += androidextras
+
 DISTFILES += \
     android/AndroidManifest.xml \
+    android/AndroidManifest.xml \
+    android/AndroidManifest.xml \
+    android/build.gradle \
+    android/build.gradle \
     android/build.gradle \
     android/gradle.properties \
+    android/gradle.properties \
+    android/gradle/wrapper/gradle-wrapper.jar \
+    android/gradle/wrapper/gradle-wrapper.jar \
     android/gradle/wrapper/gradle-wrapper.jar \
     android/gradle/wrapper/gradle-wrapper.properties \
+    android/gradle/wrapper/gradle-wrapper.properties \
+    android/gradle/wrapper/gradle-wrapper.properties \
+    android/gradlew \
+    android/gradlew \
     android/gradlew \
     android/gradlew.bat \
-    android/res/values/libs.xml
+    android/gradlew.bat \
+    android/gradlew.bat \
+    android/res/values/libs.xml \
+    android/res/values/libs.xml \
+    android/res/values/libs.xml \
+    android/java/com/eugo/example/helloworld/MyClass.java
 
 contains(ANDROID_TARGET_ARCH,arm64-v8a) {
     ANDROID_PACKAGE_SOURCE_DIR = \
         $$PWD/android
 }
+
+HEADERS += \
+    javacaller.h
+
+
