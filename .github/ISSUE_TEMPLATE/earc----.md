@@ -1,7 +1,7 @@
 ---
 name: EARC開発ネタ
-about: EARC開発動画のネタです。
-title: "[動画ネタ]"
+about: EARC開発のネタです。
+title: ''
 labels: ''
 assignees: argama147
 
