@@ -1,5 +1,4 @@
 #include "mainwindow.h"
-#include "attendanceaccessor.h"
 
 #include <QApplication>
 #include <QDebug>
@@ -19,11 +18,6 @@ int main(int argc, char *argv[])
             break;
         }
     }
-
-    AttendanceAccessor accessor;
-    QList<QList<QString>> list;
-    auto ret = accessor.readCells("", "", list);
-    qDebug() << "ret=" << ret;
 
     MainWindow w;
     w.show();
