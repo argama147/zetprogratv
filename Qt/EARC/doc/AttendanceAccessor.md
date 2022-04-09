@@ -2,12 +2,14 @@
 ```mermaid
 classDiagram
     class ExcelAccessor {
-        void readCells()
+        readCells()*
     }
     <<interface>> ExcelAccessor
     class ExcelAccessorActiveQt {
+        readCells()
     }
     class ExcelAccessorOdbc {
+        readCells()
     }
     ExcelAccessor <|-- ExcelAccessorActiveQt
     ExcelAccessor <|-- ExcelAccessorOdbc
@@ -21,14 +23,14 @@ classDiagram
     class AttendanceAccessor {
     }
     class ExcelAccessor {
-        void readCells()
+        readCells()*
     }
     <<interface>> ExcelAccessor
     class ExcelAccessorActiveQt {
-        void readCells()
+        readCells()
     }
     class ExcelAccessorOdbc {
-        void readCells()
+        readCells()
     }
     ExcelAccessor <|-- ExcelAccessorActiveQt
     ExcelAccessor <|-- ExcelAccessorOdbc
@@ -57,14 +59,14 @@ classDiagram
     class AttendanceAccessor {
     }
     class ExcelAccessor {
-        void readCells()
+        readCells()*
     }
     <<interface>> ExcelAccessor
     class ExcelAccessorActiveQt {
-        void readCells()
+        readCells()
     }
     class ExcelAccessorOdbc {
-        void readCells()
+        readCells()
     }
     ExcelAccessor <|-- ExcelAccessorActiveQt
     ExcelAccessor <|-- ExcelAccessorOdbc
