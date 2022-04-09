@@ -52,6 +52,7 @@ classDiagram
         setRowNum()
         setColumnStartNo()
         setColumnNum()
+        create()
     }
     class AttendanceAccessor {
     }
