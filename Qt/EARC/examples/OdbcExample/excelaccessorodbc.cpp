@@ -11,8 +11,8 @@ ExcelAccessorODBC::ExcelAccessorODBC(QObject *parent)
 
 }
 
-bool ExcelAccessorODBC::read(const QString filePath,
-                             const QString sheetName,
+bool ExcelAccessorODBC::read(const QString &filePath,
+                             const QString &sheetName,
                              QList<QList<QString> > &list)
 {
     bool ret = false;
