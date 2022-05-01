@@ -23,7 +23,8 @@ bool ExcelAccessorODBC::read(const QString &filePath,
             db.setDatabaseName("DRIVER={Microsoft Excel Driver (*.xls, *.xlsx, *.xlsm, *.xlsb)};DBQ="
                                + filePath);
             if(db.open()) {
-                QSqlQuery query("select * from [" + sheetName + "$B10:H41]",db);
+//                QSqlQuery query("select * from [" + sheetName + "$B10:H41]",db);
+                QSqlQuery query("select * from [" + sheetName + "$]",db);
                 while (query.next()) {
                     QList<QString> row;
                     for (int i = 0; i < 7; i++) {
