@@ -1,25 +1,8 @@
-#include <QtTest>
-#include <QSignalSpy>
-
+#include "excelaccessortest.h"
 #include "excelaccessorimpl.h"
 
-class ExcelAccessorTest : public QObject
-{
-    Q_OBJECT
-
-public:
-    ExcelAccessorTest();
-    ~ExcelAccessorTest();
-
-private slots:
-    void initTestCase();
-    void cleanupTestCase();
-    void signalCount();
-    void test_case1_data();
-    void test_case1();
-private:
-    ExcelAccessor *accessor;
-};
+#include <QtTest>
+#include <QSignalSpy>
 
 ExcelAccessorTest::ExcelAccessorTest()
 {
@@ -154,7 +137,3 @@ void ExcelAccessorTest::test_case1()
     QCOMPARE(sum, sum_result);
     QCOMPARE(contents, contents_result);
 }
-
-QTEST_MAIN(ExcelAccessorTest)
-
-#include "tst_excelaccessortest.moc"
