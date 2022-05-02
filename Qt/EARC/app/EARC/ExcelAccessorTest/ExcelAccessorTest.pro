@@ -6,8 +6,12 @@ CONFIG -= app_bundle
 
 TEMPLATE = app
 
-SOURCES +=  tst_excelaccessortest.cpp \
-    excelaccessorimpl.cpp
+SOURCES +=  \
+    excelaccessorerror.cpp \
+    excelaccessorerrortest.cpp \
+    excelaccessorimpl.cpp \
+    excelaccessortest.cpp \
+    main.cpp
 
 DESTDIR = ../bin
 INCLUDEPATH += $$PWD/../AttendanceAccessor/
@@ -15,4 +19,7 @@ INCLUDEPATH += $$PWD/../AttendanceAccessor/
 include($$PWD/../AttendanceAccessor/AttendanceAccessor.pri)
 
 HEADERS += \
-    excelaccessorimpl.h
+    excelaccessorerror.h \
+    excelaccessorerrortest.h \
+    excelaccessorimpl.h \
+    excelaccessortest.h
