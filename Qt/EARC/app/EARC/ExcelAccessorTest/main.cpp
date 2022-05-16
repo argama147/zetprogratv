@@ -3,6 +3,7 @@
 
 #include "excelaccessortest.h"
 #include "excelaccessorerrortest.h"
+#include "excelaccessorodbctest.h"
 
 int main(int argc, char *argv[])
 {
@@ -14,6 +15,10 @@ int main(int argc, char *argv[])
     }
     {
         ExcelAccessorErrorTest tc;
+        status |= QTest::qExec(&tc, argc, argv);
+    }
+    {
+        ExcelAccessorOdbcTest tc;
         status |= QTest::qExec(&tc, argc, argv);
     }
     return status;

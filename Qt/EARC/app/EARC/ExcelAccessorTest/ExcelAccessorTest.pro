@@ -10,6 +10,7 @@ SOURCES +=  \
     excelaccessorerror.cpp \
     excelaccessorerrortest.cpp \
     excelaccessorimpl.cpp \
+    excelaccessorodbctest.cpp \
     excelaccessortest.cpp \
     main.cpp
 
@@ -22,4 +23,5 @@ HEADERS += \
     excelaccessorerror.h \
     excelaccessorerrortest.h \
     excelaccessorimpl.h \
+    excelaccessorodbctest.h \
     excelaccessortest.h
