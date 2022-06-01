@@ -1,4 +1,5 @@
 QT -= gui
+QT += axcontainer
 
 TEMPLATE = lib
 DEFINES += ATTENDANCEACCESSOR_LIBRARY
@@ -10,11 +11,13 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    attendanceaccessor.cpp
+    attendanceaccessor.cpp \
+    excelaccessoractiveqt.cpp
 
 HEADERS += \
     AttendanceAccessor_global.h \
-    attendanceaccessor.h
+    attendanceaccessor.h \
+    excelaccessoractiveqt.h
 
 DESTDIR = ../bin
 
