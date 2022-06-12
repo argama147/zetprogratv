@@ -20,5 +20,6 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+    void readData(const QString &filePath);
 };
 #endif // MAINWINDOW_H
