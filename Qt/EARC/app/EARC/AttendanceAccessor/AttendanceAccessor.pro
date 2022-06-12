@@ -12,11 +12,15 @@ CONFIG += c++11
 
 SOURCES += \
     attendanceaccessor.cpp \
+    attendancedata.cpp \
+    attendancedataconverter.cpp \
     excelaccessoractiveqt.cpp
 
 HEADERS += \
     AttendanceAccessor_global.h \
     attendanceaccessor.h \
+    attendancedata.h \
+    attendancedataconverter.h \
     excelaccessoractiveqt.h
 
 DESTDIR = ../bin

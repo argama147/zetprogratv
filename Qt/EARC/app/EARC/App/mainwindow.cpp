@@ -1,6 +1,7 @@
 #include "draganddroplabel.h"
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "attendanceaccessor.h"
 
 #include <QDebug>
 #include <QFileDialog>
@@ -14,6 +15,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->labelGetFilePath, &DragAndDropLabel::sendFilePathList,
             this, [=](const QStringList &pathList){
         qDebug() << "pathList=" << pathList;
+        readData(pathList[0]);
     });
 }
 
@@ -34,6 +36,7 @@ void MainWindow::on_pushButtonFileOpen_clicked()
             [=](const QStringList &files){
         qDebug() << "files=" << files;
         ui->labelGetFilePath->setText(files.join("\n"));
+        readData(files[0]);
     });
     connect(dialog, &QFileDialog::finished,
             this,
@@ -43,5 +46,43 @@ void MainWindow::on_pushButtonFileOpen_clicked()
         dialog->deleteLater();
     });
     dialog->exec();
+}
+
+void MainWindow::readData(const QString &filePath)
+{
+    auto builder = new AttendanceAccessor::Builder;
+    //TODO:ActiveQt用のデファインを追加して切り替えられるようにする
+//    auto accessor = builder
+//            ->setBuilderType(AttendanceAccessor::BuilderType::ActiveQt)
+//            ->setFilePath(filePath)
+//            ->setSheetNo(1)
+//            ->setRowStartNo(11)
+//            ->setRowNum(31)
+//            ->setColumnStartNo(2)
+//            ->setColumnNum(7)
+//            ->create();
+    auto accessor = builder
+            ->setBuilderType(AttendanceAccessor::BuilderType::Odbc)
+            ->setFilePath(filePath)
+            ->setSheetName("シート")
+            ->setRowStartNo(11)
+            ->setColumnNum(7)
+            ->create();
+    delete builder;
+    connect(accessor, &AttendanceAccessor::sendAttendanceData,
+            this,
+            [=](const QList<AttendanceData> &attendanceDataList){
+        for (auto data : attendanceDataList) {
+            qDebug() << data.toString();
+        }
+        delete accessor;
+    });
+    connect(accessor, &AttendanceAccessor::readError,
+            this,
+            [=](const QString &reason){
+        qDebug() << "readError:" << reason;
+        delete accessor;
+    });
+    accessor->readCells();
 }
 
