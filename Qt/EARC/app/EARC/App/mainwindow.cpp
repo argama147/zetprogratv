@@ -1,10 +1,13 @@
+#include "attendanceaccessor.h"
 #include "draganddroplabel.h"
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "attendanceaccessor.h"
 
 #include <QDebug>
 #include <QFileDialog>
+#include <QMessageBox>
+#include <QProgressDialog>
+#include <QtConcurrent>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -50,17 +53,25 @@ void MainWindow::on_pushButtonFileOpen_clicked()
 
 void MainWindow::readData(const QString &filePath)
 {
+    QFutureWatcher<void> futureWatcher;
+    QProgressDialog dialog;
+    dialog.setWindowTitle(tr("Attendance File Loading"));
+    dialog.setLabelText(tr("Loading..."));
+    dialog.setRange(0, 0);
+    dialog.setCancelButton(nullptr);
+
     auto builder = new AttendanceAccessor::Builder;
-    //TODO:ActiveQt用のデファインを追加して切り替えられるようにする
-//    auto accessor = builder
-//            ->setBuilderType(AttendanceAccessor::BuilderType::ActiveQt)
-//            ->setFilePath(filePath)
-//            ->setSheetNo(1)
-//            ->setRowStartNo(11)
-//            ->setRowNum(31)
-//            ->setColumnStartNo(2)
-//            ->setColumnNum(7)
-//            ->create();
+#ifdef USE_ACTIVE_QT
+    auto accessor = builder
+            ->setBuilderType(AttendanceAccessor::BuilderType::ActiveQt)
+            ->setFilePath(filePath)
+            ->setSheetNo(1)
+            ->setRowStartNo(11)
+            ->setRowNum(31)
+            ->setColumnStartNo(2)
+            ->setColumnNum(7)
+            ->create();
+#else
     auto accessor = builder
             ->setBuilderType(AttendanceAccessor::BuilderType::Odbc)
             ->setFilePath(filePath)
@@ -68,6 +79,7 @@ void MainWindow::readData(const QString &filePath)
             ->setRowStartNo(11)
             ->setColumnNum(7)
             ->create();
+#endif //USE_ACTIVE_QT
     delete builder;
     connect(accessor, &AttendanceAccessor::sendAttendanceData,
             this,
@@ -75,14 +87,36 @@ void MainWindow::readData(const QString &filePath)
         for (auto data : attendanceDataList) {
             qDebug() << data.toString();
         }
-        delete accessor;
     });
     connect(accessor, &AttendanceAccessor::readError,
             this,
             [=](const QString &reason){
         qDebug() << "readError:" << reason;
-        delete accessor;
+        QMessageBox::warning(this, "EARC", reason);
     });
-    accessor->readCells();
+
+    connect(&futureWatcher,
+            &QFutureWatcher<void>::finished,
+            &dialog,
+            &QProgressDialog::reset);
+    connect(&futureWatcher,
+            &QFutureWatcher<void>::finished,
+            accessor,
+            &AttendanceAccessor::deleteLater);
+    connect(&dialog,
+            &QProgressDialog::canceled,
+            &futureWatcher,
+            &QFutureWatcher<void>::canceled);
+    connect(&futureWatcher,
+            &QFutureWatcher<void>::canceled,
+            accessor,
+            &AttendanceAccessor::deleteLater);
+
+    std::function<void()> func = [=]() {
+        accessor->readCells();
+    };
+    futureWatcher.setFuture(QtConcurrent::run(func));
+    dialog.exec();
+    futureWatcher.waitForFinished();
 }
 

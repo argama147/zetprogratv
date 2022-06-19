@@ -11,6 +11,11 @@ AttendanceAccessor::AttendanceAccessor(QObject *parent)
 {
 }
 
+AttendanceAccessor::~AttendanceAccessor()
+{
+    qDebug() << Q_FUNC_INFO;
+}
+
 void AttendanceAccessor::readCells()
 {
     connect(excelAccessor.get(), &ExcelAccessor::sendExcelData,

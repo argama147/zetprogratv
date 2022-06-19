@@ -39,6 +39,7 @@ public:
 
 public:
     AttendanceAccessor(QObject *parent = nullptr);
+    virtual ~AttendanceAccessor();
     void readCells();
     void setExcelAccessor(ExcelAccessor *accessor);
 signals:

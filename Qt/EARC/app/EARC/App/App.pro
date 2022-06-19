@@ -1,4 +1,5 @@
-QT       += core gui
+QT += core gui
+QT += concurrent
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -34,3 +35,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 DISTFILES += \
     App.pri
+
+#DEFINES += USE_ACTIVE_QT
