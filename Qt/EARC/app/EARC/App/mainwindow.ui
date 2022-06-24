@@ -17,8 +17,8 @@
    <widget class="QPushButton" name="pushButtonFileOpen">
     <property name="geometry">
      <rect>
-      <x>540</x>
-      <y>460</y>
+      <x>670</x>
+      <y>510</y>
       <width>75</width>
       <height>24</height>
      </rect>
@@ -27,27 +27,60 @@
      <string>File Open</string>
     </property>
    </widget>
-   <widget class="DragAndDropLabel" name="labelGetFilePath">
+   <widget class="QTabWidget" name="tabWidget">
     <property name="geometry">
      <rect>
-      <x>80</x>
-      <y>100</y>
-      <width>591</width>
-      <height>321</height>
+      <x>40</x>
+      <y>30</y>
+      <width>711</width>
+      <height>461</height>
      </rect>
     </property>
-    <property name="frameShape">
-     <enum>QFrame::Panel</enum>
+    <property name="currentIndex">
+     <number>0</number>
     </property>
-    <property name="frameShadow">
-     <enum>QFrame::Sunken</enum>
-    </property>
-    <property name="text">
-     <string>Please Drag And Drop Files</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
+    <widget class="QWidget" name="tab">
+     <attribute name="title">
+      <string>File</string>
+     </attribute>
+     <widget class="DragAndDropLabel" name="labelGetFilePath">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>40</y>
+        <width>621</width>
+        <height>361</height>
+       </rect>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Panel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Sunken</enum>
+      </property>
+      <property name="text">
+       <string>Please Drag And Drop Files</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_2">
+     <attribute name="title">
+      <string>Data</string>
+     </attribute>
+     <widget class="QTableView" name="tableView">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>20</y>
+        <width>671</width>
+        <height>401</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">

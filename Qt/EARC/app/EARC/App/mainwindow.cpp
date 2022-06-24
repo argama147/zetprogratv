@@ -87,6 +87,7 @@ void MainWindow::readData(const QString &filePath)
         for (auto data : attendanceDataList) {
             qDebug() << data.toString();
         }
+        ui->tabWidget->setCurrentIndex(1);
     });
     connect(accessor, &AttendanceAccessor::readError,
             this,
