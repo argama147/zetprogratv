@@ -20,7 +20,7 @@ URL：https://www.youtube.com/channel/UCK4cX4AtA7dIIjqFc1q6bTg
 
 ## [Twitter]
 
-[@argama147](https://twitter.com/home)
+[@argama147](https://twitter.com/argama147)
 
 ## [アーガマの略歴]
 
