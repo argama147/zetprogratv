@@ -1,4 +1,5 @@
 #include "attendanceaccessor.h"
+#include "attendancetablemodel.h"
 #include "draganddroplabel.h"
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
@@ -51,6 +52,19 @@ void MainWindow::on_pushButtonFileOpen_clicked()
     dialog->exec();
 }
 
+void MainWindow::initializeTableView()
+{
+    auto header = new QHeaderView(Qt::Horizontal);
+    header->setStyleSheet("QHeaderView::section { background-color:lightgray }");
+    ui->tableView->setHorizontalHeader(header);
+    ui->tableView->resizeColumnToContents(0);
+    ui->tableView->resizeColumnToContents(1);
+    ui->tableView->resizeColumnToContents(2);
+    ui->tableView->resizeColumnToContents(3);
+    ui->tableView->resizeColumnToContents(4);
+    ui->tableView->horizontalHeader()->setStretchLastSection(true);
+}
+
 void MainWindow::readData(const QString &filePath)
 {
     QFutureWatcher<void> futureWatcher;
@@ -87,6 +101,8 @@ void MainWindow::readData(const QString &filePath)
         for (auto data : attendanceDataList) {
             qDebug() << data.toString();
         }
+        ui->tableView->setModel(new AttendanceTableModel(attendanceDataList, this));
+        initializeTableView();
         ui->tabWidget->setCurrentIndex(1);
     });
     connect(accessor, &AttendanceAccessor::readError,

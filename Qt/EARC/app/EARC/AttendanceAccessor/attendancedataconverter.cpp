@@ -18,7 +18,7 @@ QTime AttendanceDataConverter::toTime(const QString &strData)
 {
     QTime time;
     if (!strData.isEmpty()) {
-        time = QTime::fromString(strData, "H/m");
+        time = QTime::fromString(strData, "H:m");
     }
     return time;
 }

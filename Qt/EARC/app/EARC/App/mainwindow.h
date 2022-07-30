@@ -20,6 +20,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+    void initializeTableView();
     void readData(const QString &filePath);
 };
 #endif // MAINWINDOW_H
